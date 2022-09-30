@@ -1,6 +1,6 @@
 //jshint esversion:6
 
-import { Link } from "react-router-dom";
+
 import './footer.styles.scss';
 const Footer = () =>{
     return(
