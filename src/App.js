@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+//jshint esversion:6
+import {Routes, Route} from 'react-router-dom';
+import Home from './routes/home/home.component';
+import Navigation from './routes/navigation/navigation.component';
+import Authentication from './routes/authentiction/authentication.component';
+import Shop from './routes/shop/shop.component';
+import Checkout from './routes/checkout/checkout.component';
 
-function App() {
+const App = () => {
+//default path is in home which contains the main site
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='shop/*' element={<Shop />} />
+        <Route path='auth' element={<Authentication />} />
+        <Route path='checkout' element={<Checkout />} />
+      </Route>
+    </Routes>
+    
   );
-}
+  
+};
 
 export default App;
